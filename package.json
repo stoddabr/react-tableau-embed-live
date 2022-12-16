@@ -1,5 +1,5 @@
 {
-  "name": "react-tableau-embed-live",
+  "name": "@stoddabr/react-tableau-embed-live",
   "private": true,
   "version": "0.2.0",
   "type": "module",
@@ -42,5 +42,23 @@
       "import": "./dist/react-tableau-embed-live.es.js",
       "require": "./dist/react-tableau-embed-live.umd.js"
     }
-  }
+  },
+  "description": "Embed your Tableau dashboards with confidence!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stoddabr/react-tableau-embed-live.git"
+  },
+  "keywords": [
+    "tableau",
+    "embed api v3",
+    "visualization",
+    "react",
+    "dashboard"
+  ],
+  "author": "Brett Stoddard",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/stoddabr/react-tableau-embed-live/issues"
+  },
+  "homepage": "https://github.com/stoddabr/react-tableau-embed-live#readme"
 }
