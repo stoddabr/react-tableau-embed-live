@@ -8,7 +8,7 @@
  */
 import * as React from "react";
 import { TableauEventType } from "./ScrapedTableauTypes/Enums";
-import { FilterUpdateType } from "./ScrapedTableauTypes/ExternalContract_Shared_Namespaces_Tablseu";
+import { FilterUpdateType } from "./ScrapedTableauTypes/ExternalContract_Shared_Namespaces_Tableau";
 import { TableauVizRef } from "./types";
 
 export interface OptionalTableauVizProps {

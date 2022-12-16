@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./App.css";
 import { TableauEmbed } from "../lib";
-import { FilterUpdateType } from "../lib/TableauEmbed/ScrapedTableauTypes/ExternalContract_Shared_Namespaces_Tablseu";
+import { FilterUpdateType } from "../lib/TableauEmbed/ScrapedTableauTypes/ExternalContract_Shared_Namespaces_Tableau";
 
 function App() {
   const vizRef = React.useRef<any>();
