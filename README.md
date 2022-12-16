@@ -4,18 +4,18 @@ Embed your Tableau dashboards with confidence!
 
 # Quickstart
 
-`npm install`
+`npm install @stoddabr/react-tableau-embed-live`
 
 # Demo
 
-To run demo
+To run demo (coming soon to github pages...)
 
 ```bash
 # run once
 git clone https://github.com/stoddabr/react-tableau-embed-live.git
 cd
 react-tableau-embed-live
-npm install
+npm install @stoddabr/react-tableau-embed-live
 
 # run every time
 npm run dev
