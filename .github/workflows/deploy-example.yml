@@ -1,9 +1,15 @@
-name: Deploy
+name: Deploy Example Site
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
+      - feat/live_example_page
+
+defaults:
+  run:
+    working-directory: example/react-tableau-embed-live-examples
 
 jobs:
   build:
@@ -19,8 +25,14 @@ jobs:
         with:
           node-version: 16
 
+      - name: Test directory and node
+        run: |
+          node -v
+          pwd
+
       - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+        run: npm i
+        # uses: bahmutov/npm-install@v1
 
       - name: Build project
         run: npm run build
@@ -28,24 +40,24 @@ jobs:
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v2
         with:
-          name: production-files
-          path: ./dist
+          name: example-production-files
+          path: ./example/react-tableau-embed-live-examples/dist
 
   deploy:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    # if: github.ref == 'refs/heads/main'
 
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v2
         with:
-          name: production-files
-          path: ./dist
+          name: example-production-files
+          path: ./example/react-tableau-embed-live-examples/dist
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./example/react-tableau-embed-live-examples/dist

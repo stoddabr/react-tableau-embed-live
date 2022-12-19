@@ -1,9 +1,11 @@
 import * as React from "react";
-import "./App.css";
-import { TableauEmbed } from "../lib";
-import { FilterUpdateType } from "../lib/TableauEmbed/ScrapedTableauTypes/ExternalContract_Shared_Namespaces_Tableau";
+import "../App.css";
+import {
+  TableauEmbed,
+  FilterUpdateType,
+} from "@stoddabr/react-tableau-embed-live";
 
-function App() {
+function AddRemoveFilters() {
   const vizRef = React.useRef<any>();
 
   async function removeAmericasFilter() {
@@ -36,25 +38,19 @@ function App() {
 
   return (
     <div className="App">
-      <h1>The Tableau Embedded API v3 is now a React component!</h1>
-      <TableauEmbed
-        ref={vizRef}
-        sourceUrl="https://public.tableau.com/views/WorldIndicators/GDPpercapita"
-        height={100}
-        width={900}
-        {...{ "hide-tabs": true }}
-        onEventListenerMarkSelectionChanged={(e) =>
-          console.log("mark selection change:", { e })
-        }
-      />
       <div className="buttons">
         <button onClick={() => removeAmericasFilter()}>
           Remove Americas Filter
         </button>
         <button onClick={() => addAmericasFilter()}>Add Americas Filter</button>
       </div>
+      <TableauEmbed
+        ref={vizRef}
+        sourceUrl="https://public.tableau.com/views/WorldIndicators/GDPpercapita"
+        {...{ "hide-tabs": true }}
+      />
     </div>
   );
 }
 
-export default App;
+export default AddRemoveFilters;
