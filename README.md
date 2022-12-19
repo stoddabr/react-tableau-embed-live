@@ -7,6 +7,8 @@ Embed your Tableau dashboards in React with confidence!
 - **Embed** places a Tableau dashboard inside of a webpage where others can view and use it using the Tableau Embedding API.
 - **Live** previous Tableau libraries contained stale copies of the Tableau source code. This made staying up-to-date difficult so features lagged (often by years), bloated libraries with all that extra source code, and could lead to backward compatibility issues. This version loads the Tableau Embedding API live from the server given in the source URL. Currently, it's optimized for the Tableau Embedding API v3 with backwards compatibility to v2 planned.
 
+[See the demo!](https://stoddabr.github.io/react-tableau-embed-live/)
+
 Other features:
 
 - Typescript support! As much as Tableau gives us. Advanced might encounter `any`-holes and should refer to the [Tableau official type reference](https://help.tableau.com/current/api/embedding_api/en-us/reference/index.html) (i.e., if you're using `vizRef.current` you're advanced). I have asked several times for full Tableau Embed API types and Tableau keeps saying they're "coming soon".
@@ -83,3 +85,5 @@ npm run dev
 - Filtering not built-in (requires ref callbacks)
 
 If you find anything else please create an issue or ping me on Twitter @sliceofbrett
+
+Please create a PR for a feature (similar to the [FeatureBranch](https://martinfowler.com/bliki/FeatureBranch.html) pattern only with a feature in your fork).
