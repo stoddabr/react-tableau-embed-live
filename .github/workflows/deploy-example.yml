@@ -41,20 +41,20 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: example-production-files
-          path: ./dist
+          path: ./example/react-tableau-embed-live-examples/dist
 
   deploy:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    # if: github.ref == 'refs/heads/main'
 
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v2
         with:
           name: example-production-files
-          path: ./dist
+          path: ./example/react-tableau-embed-live-examples/dist
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
