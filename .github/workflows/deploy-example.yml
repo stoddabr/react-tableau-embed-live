@@ -26,9 +26,9 @@ jobs:
           node-version: 16
 
       - name: Test directory and node
-        run:
-          - node -v
-          - pwd
+        run: |
+          node -v
+          pwd
 
       - name: Install dependencies
         run: npm i
