@@ -42,11 +42,7 @@ function App() {
     >
       <h1>The Tableau Embedded API v3</h1>
       <h3>Now more lightweight, and backwards compatible!</h3>
-      <TableauEmbed
-        sourceUrl="https://public.tableau.com/views/WorldIndicators/GDPpercapita"
-        height={800}
-        width={1200}
-      />
+      <TableauEmbed sourceUrl="https://public.tableau.com/views/WorldIndicators/GDPpercapita" />
     </div>
   );
 }
