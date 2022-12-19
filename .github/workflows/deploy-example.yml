@@ -6,11 +6,11 @@ on:
       - main
   workflow_dispatch:
 
-jobs:
-  defaults:
-    run:
-      working-directory: example/react-tableau-embed-live-examples
+defaults:
+  run:
+    working-directory: example/react-tableau-embed-live-examples
 
+jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
