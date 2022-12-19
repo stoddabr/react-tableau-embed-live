@@ -83,3 +83,5 @@ npm run dev
 - Filtering not built-in (requires ref callbacks)
 
 If you find anything else please create an issue or ping me on Twitter @sliceofbrett
+
+Please create a PR for a feature (similar to the [FeatureBranch](https://martinfowler.com/bliki/FeatureBranch.html) pattern only with a feature in your fork).

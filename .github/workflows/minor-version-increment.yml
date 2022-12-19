@@ -1,0 +1,27 @@
+name: Auto Minor Version Increment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+    if: "!startsWith(github.event.head_commit.message, '[RELEASE]')"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+
+      - name: Configure git
+        run: |
+          git config --global user.name 'github action'
+          git config --global user.email 'what@brettstoddard.com'
+
+      - name: Patch npm version
+        run: npm version patch -m "[RELEASE] %s"
+
+      - name: Bring it back, ya'll 💃
+      - run: git push
