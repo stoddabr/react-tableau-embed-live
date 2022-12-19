@@ -1,6 +1,6 @@
 # React Tableau Embed Live
 
-Embed your Tableau dashboards with confidence!
+Embed your Tableau dashboards in React with confidence!
 
 - **React** is a mid-tier web framework
 - **Tableau** is a dashboard tool that needs no introduction but I'll give one anyways. It's a fantastic data exploration tool which empowers anyone who can drag-and-drop to build beautiful data visualizations. Sometimes authors want to share this on a website with an...
@@ -14,49 +14,64 @@ Other features:
 
 # Quickstart
 
+Install via [npm @stoddabr/react-tableau-embed-live](https://www.npmjs.com/package/@stoddabr/react-tableau-embed-live):
+
 `npm install @stoddabr/react-tableau-embed-live`
 
-# Demo
+Then import, pass a source url and badda-bing.
 
-To run demo (coming soon to github pages...)
-
-```bash
-# run once
-git clone https://github.com/stoddabr/react-tableau-embed-live.git
-cd
-react-tableau-embed-live
-npm install @stoddabr/react-tableau-embed-live
-
-# run every time
-npm run dev
-```
-
-# 🏗️ Documentation under construction 🏗️
-
-Simplest example:
+Simple example using a public tableau embedding:
 
 ```js
 import * as React from "react";
 import "./App.css";
-import { TableauEmbed } from "react-tableau-embed-live";
+import { TableauEmbed } from "@stoddabr/react-tableau-embed-live";
 
 function App() {
-  const vizRef = React.useRef<any>();
-
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{
+        alignItems: "center",
+        display: "flex",
+        justifyContent: "center",
+        flexDirection: "column",
+      }}
+    >
       <h1>The Tableau Embedded API v3</h1>
-      <h3>Now more lightweight, and backwards compatible!</h1>
+      <h3>Now more lightweight, and backwards compatible!</h3>
       <TableauEmbed
         sourceUrl="https://public.tableau.com/views/WorldIndicators/GDPpercapita"
-        version="latest" // backward compatiable!
+        height={800}
+        width={1200}
       />
     </div>
   );
 }
-
 export default App;
 ```
+
+# Demo
+
+An example site lives in the folder `example/react-tableau-embed-live-examples` with useful wrapper components inside of `example/react-tableau-embed-live-examples/src/tableau_examples`.
+
+To run demo on your machine:
+
+```bash
+# run once:
+#   clone the repo
+git clone https://github.com/stoddabr/react-tableau-embed-live.git
+#   navigate to example folder
+cd example
+#   install example dependencies
+npm i
+
+# run every time:
+#   run project in hot-reloading dev-mode
+npm run dev
+```
+
+# 🏗️ Other documentation under construction 🏗️
 
 # Limitations
 
@@ -66,3 +81,5 @@ export default App;
 - Lacking full type safety (some types are scrapped from the Tableau source code)
 - Props will not update on change
 - Filtering not built-in (requires ref callbacks)
+
+If you find anything else please create an issue or ping me on Twitter @sliceofbrett
