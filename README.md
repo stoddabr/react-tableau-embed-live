@@ -20,7 +20,7 @@ Install via [npm @stoddabr/react-tableau-embed-live](https://www.npmjs.com/packa
 
 `npm install @stoddabr/react-tableau-embed-live`
 
-Then import, pass a source url and badda-bing.
+Then import, pass a source url and then _badda-bing_ you're in bussiness.
 
 Simple example using a public tableau embedding:
 
@@ -64,7 +64,7 @@ To run demo on your machine:
 #   clone the repo
 git clone https://github.com/stoddabr/react-tableau-embed-live.git
 #   navigate to example folder
-cd example
+cd example/react-tableau-embed-live-examples
 #   install example dependencies
 npm i
 
