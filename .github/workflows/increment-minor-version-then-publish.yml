@@ -28,7 +28,7 @@ jobs:
         run: git push
 
   publish:
-    npm: Publish to NPMjs
+    name: Publish to NPMjs
     runs-on: ubuntu-latest
     needs: version
     steps:
