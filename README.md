@@ -1,6 +1,6 @@
 # React Tableau Embed Live
 
-Embed your Tableau dashboards in React with confidence!
+**Embed your Tableau dashboards in React with confidence!**
 
 - **React** is a mid-tier web framework
 - **Tableau** is a dashboard tool that needs no introduction but I'll give one anyways. It's a fantastic data exploration tool which empowers anyone who can drag-and-drop to build beautiful data visualizations. Sometimes authors want to share this on a website with an...
