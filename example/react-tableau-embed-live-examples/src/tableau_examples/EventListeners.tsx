@@ -30,10 +30,10 @@ function AddRemoveFilters() {
       </div>
       <TableauEmbed
         sourceUrl="https://public.tableau.com/views/WorldIndicators/GDPpercapita"
-        onMarkSelectionChanged={(e) =>
+        onMarkSelectionChanged={(e: any) =>
           console.log("callback example: onMarkSelectionChanged:", { e })
         }
-        onEventListenerMarkSelectionChanged={(e) =>
+        onEventListenerMarkSelectionChanged={(e: any) =>
           console.log(
             "callback example: onEventListenerMarkSelectionChanged:",
             { e }

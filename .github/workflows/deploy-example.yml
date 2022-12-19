@@ -1,4 +1,4 @@
-name: Deploy-Example Site
+name: Deploy Example Site
 
 on:
   workflow_dispatch:
@@ -25,8 +25,14 @@ jobs:
         with:
           node-version: 16
 
+      - name: Test directory and node
+        run:
+          - node -v
+          - pwd
+
       - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+        run: npm i
+        # uses: bahmutov/npm-install@v1
 
       - name: Build project
         run: npm run build

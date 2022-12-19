@@ -48,9 +48,6 @@ function AddRemoveFilters() {
         ref={vizRef}
         sourceUrl="https://public.tableau.com/views/WorldIndicators/GDPpercapita"
         {...{ "hide-tabs": true }}
-        onEventListenerMarkSelectionChanged={(e) =>
-          console.log("mark selection change:", { e })
-        }
       />
     </div>
   );
