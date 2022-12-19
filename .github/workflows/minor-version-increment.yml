@@ -23,5 +23,5 @@ jobs:
       - name: Patch npm version
         run: npm version patch -m "[RELEASE] %s"
 
-      - name: Bring it back, ya'll 💃
-      - run: git push
+      - name: Update repo
+        run: git push
