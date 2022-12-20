@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# ignore personal setup for testing during dev
+/src/dev/
+index.html

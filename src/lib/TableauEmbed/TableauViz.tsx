@@ -78,7 +78,6 @@ declare global {
 
 function TableauViz(props: TableauVizCustomProps, ref: TableauVizRef) {
   const vizRef = React.useRef<any>(null);
-
   React.useImperativeHandle(ref, () => vizRef.current);
 
   // set event listeners
