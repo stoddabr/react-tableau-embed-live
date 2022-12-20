@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./App.css";
+import "../App.css";
 import { TableauEmbed } from "@stoddabr/react-tableau-embed-live";
 
 interface TableauPropsEditor {

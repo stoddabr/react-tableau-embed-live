@@ -9,7 +9,7 @@
     "build": "tsc && vite build --base=./"
   },
   "dependencies": {
-    "@stoddabr/react-tableau-embed-live": "^0.3.0",
+    "@stoddabr/react-tableau-embed-live": "^0.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
