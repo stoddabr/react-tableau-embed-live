@@ -71,6 +71,19 @@ npm run dev
 
 # 🏗️ Other documentation under construction 🏗️
 
+# Props
+
+Note: some props require odd syntax to pass due to how tableau has hyphenated fields which JS is allergic to. To sidestep future compatibility issues, this library recommends using an odd syntax which involes spreading a temporary object. An example of this syntax can be seen in the simple example below with `hide-tabs`.
+
+```js
+<TableauEmbed
+  sourceUrl="https://public.tableau.com/views/WorldIndicators/GDPpercapita"
+  {...{ "hide-tabs": true }}
+/>
+```
+
+["hide-tabs"] - note: to set to false (and show tabs), pass `undefined` not `false`. Tableau's API appears to cast this prop to a string which makes `false`-> `"false"` -> which is truthy (i.e., `boolean("false") === true` is true).
+
 # Limitations
 
 **Contributions welcome!!**

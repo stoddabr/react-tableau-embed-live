@@ -1,5 +1,8 @@
 import * as React from "react";
-import TableauViz, { OptionalTableauVizProps } from "../TableauViz";
+import TableauViz, {
+  OptionalTableauVizProps,
+  TableauVizCustomProps,
+} from "../TableauViz";
 import { TableauVizRef } from "../types";
 import useScript from "./useScript";
 
@@ -48,6 +51,13 @@ function buildTableauApiUrl(hostname: string, version?: string, min = false) {
 
 export default function useTableau(args: UseTableauParams): UseTableauReturn {
   const apiVersion = args.version ?? "latest";
+  const tableauVizProps = React.useMemo<TableauVizCustomProps>(
+    () => ({
+      src: args.sourceUrl,
+      ...args.optionalProperties,
+    }),
+    [args.sourceUrl, args.optionalProperties]
+  );
 
   const [status, setStatus] = React.useState<UseTableauStatus>(() => {
     if (!args.sourceUrl) return "idle";
@@ -56,7 +66,6 @@ export default function useTableau(args: UseTableauParams): UseTableauReturn {
   });
   // used for return status objects
   const [errMsg, setErrMsg] = React.useState<string | undefined>();
-  const [component, setComponent] = React.useState<React.ReactNode>(null);
 
   const hostname = extractHostname(args.sourceUrl);
   const apiUrl = buildTableauApiUrl(hostname);
@@ -67,37 +76,24 @@ export default function useTableau(args: UseTableauParams): UseTableauReturn {
   // respond to api status loading change
   // then update exposed status
   React.useEffect(() => {
-    // if ready initialize tableau embed
-    if (apiLoadStatus === "ready") {
-      const tableauComponent = (
-        <TableauViz
-          ref={args.ref}
-          src={args.sourceUrl}
-          {...args.optionalProperties}
-        />
-      );
-      setComponent(tableauComponent);
-      setStatus("ready");
-    }
+    // update exposed status
+    setStatus(apiLoadStatus);
 
-    // if error, expose error message
+    // handle edge-cases:
+    //  if error, expose error message
     if (status === "error") {
       setErrMsg(apiErrorMessage);
     }
 
-    // if idle clear error & component
+    //  if idle clear error & component
     if (apiLoadStatus === "idle") {
       setErrMsg("");
-      setComponent(null);
     }
-
-    // update exposed status
-    setStatus(apiLoadStatus);
   }, [apiLoadStatus]);
 
   return {
     status,
-    component,
+    component: status === "ready" && <TableauViz {...tableauVizProps} />,
     errorMessage: errMsg,
     isIdle: status === "idle",
     isLoading: status === "loading",

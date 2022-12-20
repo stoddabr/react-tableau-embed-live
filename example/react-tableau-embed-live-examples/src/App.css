@@ -17,6 +17,15 @@
   margin: 1rem;
 }
 
+form.props-form > label,
+.form > .button {
+  margin: 10px;
+}
+
+.props-form {
+  margin: 3px;
+}
+
 .example-spacer {
   height: 3rem;
   width: 100vw;

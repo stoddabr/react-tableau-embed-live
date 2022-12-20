@@ -32,7 +32,10 @@ function TableauEmbed(props: TableauEmbed, ref: TableauVizRef) {
   }
 
   if (!component) {
-    console.error("finished loading but component is falsy");
+    console.error(
+      "Finished loading but component is falsy. Error message: " +
+        tableau.errorMessage
+    );
     return <h3>component error: falsy"</h3>;
   }
 
