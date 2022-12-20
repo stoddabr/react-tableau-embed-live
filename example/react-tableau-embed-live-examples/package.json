@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build": "tsc && vite build --base=./"
   },
   "dependencies": {
     "@stoddabr/react-tableau-embed-live": "^0.3.0",
