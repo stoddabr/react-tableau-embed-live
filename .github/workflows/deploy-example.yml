@@ -2,10 +2,11 @@ name: Deploy Example Site
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-      - feat/live_example_page
+  workflow_run:
+    workflows: ["Increment & Publish"]
+    branches: [main]
+    types:
+      - completed
 
 defaults:
   run:
@@ -31,8 +32,10 @@ jobs:
           pwd
 
       - name: Install dependencies
-        run: npm i
-        # uses: bahmutov/npm-install@v1
+        run: npm ci
+
+      - name: Check library version
+        run: npm list @stoddabr/react-tableau-embed-live
 
       - name: Build project
         run: npm run build
