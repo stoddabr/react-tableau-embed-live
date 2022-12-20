@@ -19,7 +19,7 @@ jobs:
       - name: Configure git
         run: |
           git config --global user.name 'github action'
-          git config --global user.email 'what@brettstoddard.com'
+          git config --global user.email 'git_workflow@brettstoddard.com'
 
       - name: Patch npm version
         run: npm version patch -m "[RELEASE] %s"
@@ -49,6 +49,9 @@ jobs:
 
       - name: Build project
         run: npm run build
+
+      - name: Print version
+        run: grep version package.json | awk -F \" '{print $4}'
 
       - name: Publish to npm
         run: npm publish
