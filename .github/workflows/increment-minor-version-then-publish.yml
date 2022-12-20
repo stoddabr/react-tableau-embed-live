@@ -50,8 +50,11 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Print version
-        run: grep version package.json | awk -F \" '{print $4}'
+      - name: Print version and other checks
+        run: |
+          grep version package.json | awk -F \" '{print $4}'
+          ls dist
+          ls dist/assets
 
       - name: Publish to npm
         run: npm publish
