@@ -54,7 +54,6 @@ jobs:
         run: |
           grep version package.json | awk -F \" '{print $4}'
           ls dist
-          ls dist/assets
 
       - name: Publish to npm
         run: npm publish
