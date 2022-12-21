@@ -1,4 +1,9 @@
+[![Increment & Publish](https://github.com/stoddabr/react-tableau-embed-live/actions/workflows/increment-minor-version-then-publish.yml/badge.svg)](https://github.com/stoddabr/react-tableau-embed-live/actions/workflows/increment-minor-version-then-publish.yml)
+[![Deploy Example Site](https://github.com/stoddabr/react-tableau-embed-live/actions/workflows/deploy-example.yml/badge.svg)](https://github.com/stoddabr/react-tableau-embed-live/actions/workflows/deploy-example.yml)
+
 # React Tableau Embed Live
+
+[See the demo!](https://stoddabr.github.io/react-tableau-embed-live/)
 
 **Embed your Tableau dashboards in React with confidence!**
 
@@ -6,8 +11,6 @@
 - **Tableau** is a dashboard tool that needs no introduction but I'll give one anyways. It's a fantastic data exploration tool which empowers anyone who can drag-and-drop to build beautiful data visualizations. Sometimes authors want to share this on a website with an...
 - **Embed** places a Tableau dashboard inside of a webpage where others can view and use it using the Tableau Embedding API.
 - **Live** previous Tableau libraries contained stale copies of the Tableau source code. This made staying up-to-date difficult so features lagged (often by years), bloated libraries with all that extra source code, and could lead to backward compatibility issues. This version loads the Tableau Embedding API live from the server given in the source URL. Currently, it's optimized for the Tableau Embedding API v3 with backwards compatibility to v2 planned.
-
-[See the demo!](https://stoddabr.github.io/react-tableau-embed-live/)
 
 Other features:
 
@@ -69,7 +72,7 @@ npm i
 npm run dev
 ```
 
-# 🏗️ Other documentation under construction 🏗️
+# 🏗️ documentation under construction 🏗️
 
 # Props
 
@@ -84,15 +87,34 @@ Note: some props require odd syntax to pass due to how tableau has hyphenated fi
 
 ["hide-tabs"] - note: to set to false (and show tabs), pass `undefined` not `false`. Tableau's API appears to cast this prop to a string which makes `false`-> `"false"` -> which is truthy (i.e., `boolean("false") === true` is true).
 
+# Styling
+
+The styles of the parent component of `TableauEmbed` is important and tricky to get correct.
+By default, without any height/width props passed, it will take up the height/width in the parent container.
+However, this will only happen if the tableau dashboard being embedded is NOT set to fixed mode or the size it's attempting is larger than it's range ([tableau docs](https://help.tableau.com/current/pro/desktop/en-us/dashboards_organize_floatingandtiled.htm)).
+Fixed dashboards should always be set to their exact dimensions and then scaled using JS/CSS transforms ([for example, "the react way" in this article](https://medium.com/bleeding-edge/enforcing-an-aspect-ratio-on-an-html-element-in-react-and-css-27a13241c3d4)).
+
+Prior updates of the Tableau Embedded API have broken this styling (specifically v3.2 -> v3.4).
+It's recommended for any project using this library to implement integration-level snapshot tests that check to ensure the `TableauEmbed` component is styled correctly.
+
+# Licences
+
+When using this library ensure you are following Tableau's licensing agreement.
+
 # Limitations
+
+- Only backwards comparible down to Tableau Embed API v3.0 (i.e., later than (Tableau server v2021.4)[https://help.tableau.com/current/api/embedding_api/en-us/docs/embedding_api_get.html])
+- Lacking full type safety (some types are scrapped from the Tableau source code)
+- Filtering not built-in (requires ref callbacks)
+- No tests!!!
+- Attempting to print the page when exporting an embedded tableau dashboard will not work. If you need to do this, consider using the Tableau REST API to generate an image. Most pdf-from-DOM-snapshot libraries will not work either (if you get one working, please please create a PR to update this readme).
+
+If you discover anything other limitations please create an issue, and/or ping me on Twitter: @sliceofbrett
+
+# Contributions
 
 **Contributions welcome!!**
 
-- Only backwards comparible to version 3.0
-- Lacking full type safety (some types are scrapped from the Tableau source code)
-- Props will not update on change
-- Filtering not built-in (requires ref callbacks)
+To contribute, please fork, then create an atomic PR that describes the fix or feature. If you're not sure what to contribute, see the above list of limitations, or any open issues without an active dev branch.
 
-If you find anything else please create an issue or ping me on Twitter @sliceofbrett
-
-Please create a PR for a feature (similar to the [FeatureBranch](https://martinfowler.com/bliki/FeatureBranch.html) pattern only with a feature in your fork).
+This project is setup with some CICD github actions to make this process easier. Every push request will trigger actions to increment the npm patch version, build the project, publish the project to npm, build the examples site, and then publishes the example site to a dedicated branch.

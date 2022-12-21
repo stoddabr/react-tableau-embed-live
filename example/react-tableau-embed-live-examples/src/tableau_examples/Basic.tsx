@@ -1,5 +1,4 @@
 import * as React from "react";
-import "../App.css";
 import {
   TableauEmbed,
   FilterUpdateType,
@@ -8,10 +7,7 @@ import {
 function AddRemoveFilters() {
   return (
     <div className="App">
-      <TableauEmbed
-        sourceUrl="https://public.tableau.com/views/WorldIndicators/GDPpercapita"
-        {...{ "hide-tabs": true }}
-      />
+      <TableauEmbed sourceUrl="https://public.tableau.com/views/WorldIndicators/GDPpercapita" />
     </div>
   );
 }
