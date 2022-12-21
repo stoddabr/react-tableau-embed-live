@@ -1,3 +1,6 @@
+[![Increment & Publish](https://github.com/stoddabr/react-tableau-embed-live/actions/workflows/increment-minor-version-then-publish.yml/badge.svg)](https://github.com/stoddabr/react-tableau-embed-live/actions/workflows/increment-minor-version-then-publish.yml)
+[![Deploy Example Site](https://github.com/stoddabr/react-tableau-embed-live/actions/workflows/deploy-example.yml/badge.svg)](https://github.com/stoddabr/react-tableau-embed-live/actions/workflows/deploy-example.yml)
+
 # React Tableau Embed Live
 
 [See the demo!](https://stoddabr.github.io/react-tableau-embed-live/)
