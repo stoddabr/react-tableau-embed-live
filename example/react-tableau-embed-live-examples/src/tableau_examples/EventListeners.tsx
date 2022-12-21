@@ -27,18 +27,20 @@ function AddRemoveFilters() {
         </p>
         <br />
       </div>
-      <TableauEmbed
-        sourceUrl="https://public.tableau.com/views/WorldIndicators/GDPpercapita"
-        onMarkSelectionChanged={(e: any) =>
-          console.log("callback example: onMarkSelectionChanged:", { e })
-        }
-        onEventListenerMarkSelectionChanged={(e: any) =>
-          console.log(
-            "callback example: onEventListenerMarkSelectionChanged:",
-            { e }
-          )
-        }
-      />
+      <div className="tableau-wrapper-min">
+        <TableauEmbed
+          sourceUrl="https://public.tableau.com/views/WorldIndicators/GDPpercapita"
+          onMarkSelectionChanged={(e: any) =>
+            console.log("callback example: onMarkSelectionChanged:", { e })
+          }
+          onEventListenerMarkSelectionChanged={(e: any) =>
+            console.log(
+              "callback example: onEventListenerMarkSelectionChanged:",
+              { e }
+            )
+          }
+        />
+      </div>
     </div>
   );
 }
