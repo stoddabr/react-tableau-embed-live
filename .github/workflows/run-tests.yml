@@ -11,8 +11,7 @@ on:
         description: "The full branch name to test"
 
 jobs:
-  build:
-    name: Build
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -36,9 +35,3 @@ jobs:
 
       - name: Run test
         run: npm run test
-
-      - name: Upload production-ready build files
-        uses: actions/upload-artifact@v2
-        with:
-          name: example-production-files
-          path: ./example/react-tableau-embed-live-examples/dist
