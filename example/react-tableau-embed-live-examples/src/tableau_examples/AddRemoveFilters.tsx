@@ -1,9 +1,9 @@
 import * as React from "react";
-import "../App.css";
 import {
   TableauEmbed,
   FilterUpdateType,
 } from "@stoddabr/react-tableau-embed-live";
+import "./tableau.css";
 
 function AddRemoveFilters() {
   const vizRef = React.useRef<any>();
@@ -44,11 +44,13 @@ function AddRemoveFilters() {
         </button>
         <button onClick={() => addAmericasFilter()}>Add Americas Filter</button>
       </div>
-      <TableauEmbed
-        ref={vizRef}
-        sourceUrl="https://public.tableau.com/views/WorldIndicators/GDPpercapita"
-        {...{ "hide-tabs": true }}
-      />
+      <div className="tableau-wrapper">
+        <TableauEmbed
+          ref={vizRef}
+          sourceUrl="https://public.tableau.com/views/WorldIndicators/GDPpercapita"
+          {...{ "hide-tabs": true }}
+        />
+      </div>
     </div>
   );
 }

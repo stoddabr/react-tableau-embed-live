@@ -1,6 +1,6 @@
 import * as React from "react";
-import "../App.css";
 import { TableauEmbed } from "@stoddabr/react-tableau-embed-live";
+import "./tableau.css";
 
 interface TableauPropsEditor {
   height: number;
@@ -92,7 +92,7 @@ function InteractiveProps() {
       <TableauEmbed {...props} />
 
       <div>
-        <h3>Active props:</h3>
+        <h5>Active props:</h5>
         <p>{JSON.stringify(props)}</p>
       </div>
     </div>

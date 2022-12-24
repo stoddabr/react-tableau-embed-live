@@ -26,3 +26,6 @@ dist-ssr
 # ignore personal setup for testing during dev
 /src/dev/
 index.html
+
+# testing
+coverage/
