@@ -8,7 +8,8 @@ export interface UseScriptOptions {
 }
 
 // Cached script statuses
-const cachedScriptStatuses: Record<string, UseScriptStatus | undefined> = {};
+export const cachedScriptStatuses: Record<string, UseScriptStatus | undefined> =
+  {};
 
 function getScriptNode(src: string) {
   const node: HTMLScriptElement | null = document.querySelector(
