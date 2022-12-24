@@ -36,9 +36,3 @@ jobs:
 
       - name: Run test
         run: npm run test
-
-      - name: Upload production-ready build files
-        uses: actions/upload-artifact@v2
-        with:
-          name: example-production-files
-          path: ./example/react-tableau-embed-live-examples/dist
