@@ -9,7 +9,7 @@ jobs:
   test:
     uses: ./.github/workflows/run-tests.yml
     with:
-      branch: ${{ github.event.pull_request.base.ref }}
+      branch: ${{ github.event.pull_request.head_ref }}
 
   comment-on-failure:
     runs-on: ubuntu-latest
