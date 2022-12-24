@@ -11,8 +11,7 @@ on:
         description: "The full branch name to test"
 
 jobs:
-  build:
-    name: Build
+  test:
     runs-on: ubuntu-latest
 
     steps:
