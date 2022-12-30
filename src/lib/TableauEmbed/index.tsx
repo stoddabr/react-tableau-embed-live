@@ -3,11 +3,12 @@ import useTableau from "./UseTableau";
 import classes from "./tableau_wrapper.module.css";
 import { OptionalTableauVizProps } from "./TableauViz";
 import { TableauVizRef } from "./types";
+import LoadingSpinner from "./LoadingSpinner";
 
 interface TableauEmbed extends OptionalTableauVizProps {
   sourceUrl: string;
   version?: string;
-  // loadingSpinner: React.ReactNode;
+  loadingSpinner?: React.ReactElement;
 }
 
 function TableauEmbed(props: TableauEmbed, ref: TableauVizRef) {
@@ -25,10 +26,7 @@ function TableauEmbed(props: TableauEmbed, ref: TableauVizRef) {
   }
 
   if (!isSuccess) {
-    // if (!props.loadingSpinner)
-    console.warn("Not implemented: default loading spinner");
-    // return props.loadingSpinner ?? "loading...";
-    return <h3>loading...</h3>;
+    return props.loadingSpinner ?? <LoadingSpinner />;
   }
 
   if (!component) {
