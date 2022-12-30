@@ -93,7 +93,9 @@ export default function useTableau(args: UseTableauParams): UseTableauReturn {
 
   return {
     status,
-    component: status === "ready" && <TableauViz {...tableauVizProps} />,
+    component: status === "ready" && (
+      <TableauViz ref={args.ref} {...tableauVizProps} />
+    ),
     errorMessage: errMsg,
     isIdle: status === "idle",
     isLoading: status === "loading",
