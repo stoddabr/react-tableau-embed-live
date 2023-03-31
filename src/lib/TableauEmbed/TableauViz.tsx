@@ -17,6 +17,7 @@ export interface OptionalTableauVizProps {
   "hide-tabs"?: boolean;
   toolbar?: "top" | "bottom" | "hidden";
   device?: "default" | "desktop" | "tablet" | "phone";
+  token?: string;
   "instance-id-to-clone"?: any;
   "disable-url-actions"?: boolean;
   "hide-edit-button"?: boolean;
