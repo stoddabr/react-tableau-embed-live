@@ -68,7 +68,7 @@ export default function useTableau(args: UseTableauParams): UseTableauReturn {
   const [errMsg, setErrMsg] = React.useState<string | undefined>();
 
   const hostname = extractHostname(args.sourceUrl);
-  const apiUrl = buildTableauApiUrl(hostname);
+  const apiUrl = buildTableauApiUrl(hostname, args.version, !!args.version);
 
   const { status: apiLoadStatus, errorMessage: apiErrorMessage } =
     useScript(apiUrl);
