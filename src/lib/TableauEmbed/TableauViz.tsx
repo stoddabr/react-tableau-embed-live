@@ -9,9 +9,10 @@
 import * as React from "react";
 import { TableauEventType } from "./ScrapedTableauTypes/Enums";
 import { FilterUpdateType } from "./ScrapedTableauTypes/ExternalContract_Shared_Namespaces_Tableau";
-import { TableauVizRef } from "./types";
+import { TableauVizRef, VizChildElements, FilterParameters, VizParameter, CustomParameter } from "./types";
 
 export interface OptionalTableauVizProps {
+  children?: React.ReactElement<VizChildElements>[];
   height?: React.CSSProperties["height"];
   width?: React.CSSProperties["width"];
   "hide-tabs"?: boolean;
@@ -73,6 +74,9 @@ declare global {
         HTMLElement
       > &
         TableauVizCustomProps;
+    [VizChildElements.VizFilter‎]: FilterParameters;
+    [VizChildElements.VizParameter‎]: VizParameter;
+    [VizChildElements.CustomParameter]: CustomParameter;
     }
   }
 }
