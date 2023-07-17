@@ -10,9 +10,10 @@ import * as React from "react";
 import { TableauEventType } from "./ScrapedTableauTypes/Enums";
 import { FilterUpdateType } from "./ScrapedTableauTypes/ExternalContract_Shared_Namespaces_Tableau";
 import { TableauVizRef, VizChildElements, FilterParameters, VizParameter, CustomParameter } from "./types";
+import { type } from "os";
 
 export interface OptionalTableauVizProps {
-  children?: React.ReactElement<VizChildElements>[];
+  children?: JSX.Element[] | JSX.Element;
   height?: React.CSSProperties["height"];
   width?: React.CSSProperties["width"];
   "hide-tabs"?: boolean;
@@ -73,10 +74,10 @@ declare global {
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
       > &
-        TableauVizCustomProps;
-    [VizChildElements.VizFilter‎]: FilterParameters;
-    [VizChildElements.VizParameter‎]: VizParameter;
-    [VizChildElements.CustomParameter]: CustomParameter;
+      TableauVizCustomProps;
+      [VizChildElements.VizFilter]: FilterParameters;
+      [VizChildElements.VizParameter]: VizParameter;
+      [VizChildElements.CustomParameter]: CustomParameter;
     }
   }
 }
@@ -84,6 +85,13 @@ declare global {
 function TableauViz(props: TableauVizCustomProps, ref: TableauVizRef) {
   const vizRef = React.useRef<any>(null);
   React.useImperativeHandle(ref, () => vizRef.current);
+
+  // check children
+  React.useEffect(() => {
+    console.log(props.children)
+    React.Children.toArray(props.children).map(
+      x => console.log(`child ${typeof x === 'object' ? (x as any).type.name : typeof x}`));
+  },[])
 
   // set event listeners
   React.useEffect(() => {
@@ -273,7 +281,7 @@ function TableauViz(props: TableauVizCustomProps, ref: TableauVizRef) {
           );
       };
     }
-    return () => {};
+    return () => { };
   }, [vizRef]);
 
   return <tableau-viz id="tableauViz" ref={vizRef} {...props}></tableau-viz>;
