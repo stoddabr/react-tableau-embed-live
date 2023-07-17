@@ -86,13 +86,6 @@ function TableauViz(props: TableauVizCustomProps, ref: TableauVizRef) {
   const vizRef = React.useRef<any>(null);
   React.useImperativeHandle(ref, () => vizRef.current);
 
-  // check children
-  React.useEffect(() => {
-    console.log(props.children)
-    React.Children.toArray(props.children).map(
-      x => console.log(`child ${typeof x === 'object' ? (x as any).type.name : typeof x}`));
-  },[])
-
   // set event listeners
   React.useEffect(() => {
     if (vizRef && vizRef.current) {
