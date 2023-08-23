@@ -65,6 +65,7 @@ export interface OptionalTableauVizProps {
 
 export interface TableauVizCustomProps extends OptionalTableauVizProps {
   src: string;
+  isAuthoring?: boolean;
 }
 
 declare global {
@@ -75,6 +76,11 @@ declare global {
         HTMLElement
       > &
       TableauVizCustomProps;
+      ["tableau-authoring-viz"]: React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      > &
+      TableauVizCustomProps;      
       [VizChildElements.VizFilter]: FilterParameters;
       [VizChildElements.VizParameter]: VizParameter;
       [VizChildElements.CustomParameter]: CustomParameter;
@@ -276,6 +282,10 @@ function TableauViz(props: TableauVizCustomProps, ref: TableauVizRef) {
     }
     return () => { };
   }, [vizRef]);
+
+  if (props.isAuthoring) {
+    return <tableau-authoring-viz id="tableauViz" ref={vizRef} {...props}></tableau-authoring-viz>;
+  }
 
   return <tableau-viz id="tableauViz" ref={vizRef} {...props}></tableau-viz>;
 }

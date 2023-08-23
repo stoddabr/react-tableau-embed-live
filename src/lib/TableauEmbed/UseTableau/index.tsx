@@ -24,6 +24,7 @@ export interface UseTableauParams {
   ref: TableauVizRef;
   sourceUrl: string;
   version?: string;
+  isAuthoring?: boolean;
   optionalProperties?: OptionalTableauVizProps;
 }
 
@@ -54,9 +55,10 @@ export default function useTableau(args: UseTableauParams): UseTableauReturn {
   const tableauVizProps = React.useMemo<TableauVizCustomProps>(
     () => ({
       src: args.sourceUrl,
+      isAuthoring: args.isAuthoring,
       ...args.optionalProperties,
     }),
-    [args.sourceUrl, args.optionalProperties]
+    [args.sourceUrl, args.isAuthoring, args.optionalProperties]
   );
 
   const [status, setStatus] = React.useState<UseTableauStatus>(() => {
