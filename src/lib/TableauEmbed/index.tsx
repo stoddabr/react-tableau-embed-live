@@ -9,14 +9,16 @@ interface TableauEmbed extends OptionalTableauVizProps {
   sourceUrl: string;
   version?: string;
   loadingSpinner?: React.ReactElement;
+  isAuthoring?: boolean;
 }
 
 function TableauEmbed(props: TableauEmbed, ref: TableauVizRef) {
-  const { sourceUrl, version, ...optionalProperties } = props;
+  const { sourceUrl, version, isAuthoring, ...optionalProperties } = props;
   const { isSuccess, isError, component, ...tableau } = useTableau({
     ref,
     sourceUrl,
     version,
+    isAuthoring,
     optionalProperties,
   });
 
