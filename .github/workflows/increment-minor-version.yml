@@ -1,0 +1,32 @@
+name: Increment Version
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    uses: ./.github/workflows/run-tests.yml
+
+  version:
+    name: Auto-Update Minor Version
+    runs-on: ubuntu-latest
+    needs: test
+    if: "!startsWith(github.event.head_commit.message, '[RELEASE]')"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure git
+        run: |
+          git config --global user.name 'github action'
+          git config --global user.email 'git_workflow@brettstoddard.com'
+
+      - name: Patch npm version
+        run: npm version patch -m "[RELEASE] %s"
+
+      - name: Update repo
+        run: git push
