@@ -326,6 +326,11 @@ export enum TableauEventType {
    * @category Viewing
    */
   StoryPointSwitched = "storypointswitched",
+
+  /**
+   * An event that signals an error while loading the webcomponent.
+   */
+  VizLoadError = "vizloaderror",
 }
 
 /**

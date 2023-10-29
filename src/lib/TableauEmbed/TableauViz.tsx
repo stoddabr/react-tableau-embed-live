@@ -9,7 +9,7 @@
 import * as React from "react";
 import { TableauEventType } from "./ScrapedTableauTypes/Enums";
 import { FilterUpdateType } from "./ScrapedTableauTypes/ExternalContract_Shared_Namespaces_Tableau";
-import { TableauVizRef, VizChildElements, FilterParameters, VizParameter, CustomParameter } from "./types";
+import { TableauVizRef, VizChildElements, FilterParameters, VizParameter, CustomParameter, VizLoadErrorEvent } from "./types";
 import { type } from "os";
 
 export interface OptionalTableauVizProps {
@@ -61,6 +61,7 @@ export interface OptionalTableauVizProps {
   onEventListenerWorkbookPublished?: (event: any) => void;
   onEventListenerWorkbookPublishedAs?: (event: any) => void;
   onEventListenerWorkbookReadyToClose?: (event: any) => void;
+  onEventListenerVizLoadErrorEvent?: (event: VizLoadErrorEvent) => void;
 }
 
 export interface TableauVizCustomProps extends OptionalTableauVizProps {
@@ -181,6 +182,10 @@ function TableauViz(props: TableauVizCustomProps, ref: TableauVizRef) {
           TableauEventType.WorkbookReadyToClose,
           props.onEventListenerWorkbookReadyToClose
         );
+      if (props.onEventListenerVizLoadErrorEvent)
+        viz.addEventListener(
+          TableauEventType.VizLoadError, 
+          props.onEventListenerVizLoadErrorEvent)
       return () => {
         if (props.onEventListenerCustomMarkContextMenuEvent)
           viz.removeEventListener(
