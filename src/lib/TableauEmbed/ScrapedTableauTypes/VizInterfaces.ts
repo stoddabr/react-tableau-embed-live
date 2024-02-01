@@ -616,3 +616,51 @@ export interface CustomParameter {
    */
   value: string;
 }
+
+export interface VizLoadErrorEvent extends Event {
+  detail: {
+    /**
+     * The error code
+     */
+    _errorCode:
+      | "auth-failed"
+      | "browser-not-capable"
+      | "download-workbook-not-allowed"
+      | "event-initialization-error"
+      | "filter-cannot-be-performed"
+      | "filter-missing-not-implemented"
+      | "wrong-implementation"
+      | "incompatible-version-error"
+      | "index-out-of-range"
+      | "internal-error"
+      | "invalid-custom-view-name"
+      | "invalid-date-parameter"
+      | "invalid-parameter"
+      | "invalid-size"
+      | "invalid-size-behavior"
+      | "invalid-size-behavior-on-worksheet"
+      | "invalid-url"
+      | "missing-max-size"
+      | "missing-min-max-size"
+      | "missing-min-size"
+      | "missing-parameter"
+      | "missing-range-n-for-relative-date-filters"
+      | "no-url-for-hidden-worksheet"
+      | "no-url-or-parent-element-not-found"
+      | "not-active-sheet"
+      | "not-implemented"
+      | "null-or-empty-parameter"
+      | "sheet-not-in-workbook"
+      | "stale-data-reference"
+      | "storypoint-id-mismatch"
+      | "unknown-auth-error"
+      | "unknown-dialog-type"
+      | "unsupported-event-name"
+      | "viz-already-in-manager"
+      | "invalid-filter-field-name";
+    /**
+     * The error message
+     */
+    _message: string;
+  };
+}
