@@ -46,7 +46,7 @@ function App() {
     >
       <h1>The Tableau Embedded API v3</h1>
       <h3>Now more lightweight, and backwards compatible!</h3>
-      <TableauEmbed sourceUrl="https://public.tableau.com/views/WorldIndicators/GDPpercapita" />
+      <TableauEmbed sourceUrl="https://public.tableau.com/views/US_WorldIndicators_10_0/Population" />
     </div>
   );
 }
@@ -103,7 +103,7 @@ Note: some props in require odd syntax to pass due to how tableau has hyphenated
 
 ```js
 <TableauEmbed
-  sourceUrl="https://public.tableau.com/views/WorldIndicators/GDPpercapita"
+  sourceUrl="https://public.tableau.com/views/US_WorldIndicators_10_0/Population"
   {...{ "hide-tabs": showTab ? undefined : true }}
 />
 ```

@@ -47,7 +47,7 @@ function AddRemoveFilters() {
       <div className="tableau-wrapper">
         <TableauEmbed
           ref={vizRef}
-          sourceUrl="https://public.tableau.com/views/WorldIndicators/GDPpercapita"
+          sourceUrl="https://public.tableau.com/views/US_WorldIndicators_10_0/Population"
           {...{ "hide-tabs": true }}
         />
       </div>
