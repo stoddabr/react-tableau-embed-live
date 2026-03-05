@@ -7,7 +7,7 @@ import {
 function AddRemoveFilters() {
   return (
     <div className="App">
-      <TableauEmbed sourceUrl="https://public.tableau.com/views/WorldIndicators/GDPpercapita" />
+      <TableauEmbed sourceUrl="https://public.tableau.com/views/US_WorldIndicators_10_0/Population" />
     </div>
   );
 }

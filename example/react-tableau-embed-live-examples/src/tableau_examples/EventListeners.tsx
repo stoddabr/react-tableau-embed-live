@@ -9,9 +9,13 @@ function AddRemoveFilters() {
     <div className="App">
       <div>
         <p>
-          This example shows event listeners. Two types are exposed as props:
-          callbacks which have the names defined in the Tableau documentation
-          are passed as props to <span>{"<tableau-viz>"}</span>
+          {
+            "This example shows event listeners which will trigger console logs (inspect page -> console to view)."
+          }
+          <br />
+          Two types are exposed as props: callbacks which have the names defined
+          in the Tableau documentation are passed as props to{" "}
+          <span>{"<tableau-viz>"}</span>
           (e.g., "onMarkSelectionChanged"), and those which are added via an
           event listener which have a prefix (e.g.,
           "onEventListenerMarkSelectionChanged").
@@ -29,7 +33,7 @@ function AddRemoveFilters() {
       </div>
       <div className="tableau-wrapper-min">
         <TableauEmbed
-          sourceUrl="https://public.tableau.com/views/WorldIndicators/GDPpercapita"
+          sourceUrl="https://public.tableau.com/views/US_WorldIndicators_10_0/Population"
           onMarkSelectionChanged={(e: any) =>
             console.log("callback example: onMarkSelectionChanged:", { e })
           }

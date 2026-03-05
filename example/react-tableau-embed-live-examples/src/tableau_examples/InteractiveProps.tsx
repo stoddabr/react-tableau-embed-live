@@ -13,7 +13,8 @@ const defaultProps = {
   height: 500,
   width: 500,
   // "hide-tabs": false,
-  sourceUrl: "https://public.tableau.com/views/WorldIndicators/GDPpercapita",
+  sourceUrl:
+    "https://public.tableau.com/views/US_WorldIndicators_10_0/Population",
 };
 
 function InteractiveProps() {
