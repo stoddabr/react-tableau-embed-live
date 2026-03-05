@@ -1,6 +1,6 @@
 {
   "name": "@stoddabr/react-tableau-embed-live",
-  "version": "0.3.33",
+  "version": "0.3.34",
   "type": "module",
   "scripts": {
     "dev": "vite",
