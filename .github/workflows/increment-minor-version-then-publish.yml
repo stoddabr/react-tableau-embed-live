@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+permissions:
+  id-token: write # Required for OIDC
+  contents: read
+
 jobs:
   test:
     uses: ./.github/workflows/run-tests.yml
@@ -61,5 +65,3 @@ jobs:
 
       - name: Publish to npm
         run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
