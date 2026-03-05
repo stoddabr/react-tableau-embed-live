@@ -72,6 +72,8 @@
   },
   "overrides": {
     "ajv": "^8.18.0",
-    "minimatch": "^10.2.4"
+    "@microsoft/api-extractor": {
+      "minimatch": "^10.2.4"
+    }
   }
 }
