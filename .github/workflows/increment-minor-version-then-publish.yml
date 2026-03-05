@@ -63,5 +63,8 @@ jobs:
           grep version package.json | awk -F \" '{print $4}'
           ls dist
 
+      - name: Test npm
+        run: npm test
+
       - name: Publish to npm
         run: npm publish
