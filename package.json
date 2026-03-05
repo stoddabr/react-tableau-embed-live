@@ -68,7 +68,7 @@
   },
   "homepage": "https://github.com/stoddabr/react-tableau-embed-live#readme",
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "overrides": {
     "ajv": "^8.18.0",
